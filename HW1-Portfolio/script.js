@@ -1,21 +1,14 @@
-const menuButton =
-    document.querySelector("#menuButton");
+const menuButton = document.querySelector("#menuButton");
+const mainMenu = document.querySelector("#mainMenu");
 
-const mainMenu =
-    document.querySelector("#mainMenu");
+menuButton.addEventListener("click", function () {
 
-menuButton.addEventListener(
-    "click",
-    function () {
+    const isHidden = mainMenu.hidden;
 
-        if (mainMenu.hidden) {
+    mainMenu.hidden = !isHidden;
 
-            mainMenu.hidden = false;
-
-        } else {
-
-            mainMenu.hidden = true;
-
-        }
-    }
-);
+    menuButton.setAttribute(
+        "aria-expanded",
+        String(isHidden)
+    );
+});
