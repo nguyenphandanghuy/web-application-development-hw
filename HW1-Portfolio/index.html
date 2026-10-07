@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Personal portfolio website"
+    >
+
+    <title>My Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav aria-label="Main navigation">
+
+            <a href="#home" class="logo">
+                My Portfolio
+            </a>
+
+            <button
+                id="menuButton"
+                type="button"
+                aria-expanded="true"
+                aria-controls="mainMenu"
+            >
+                Menu
+            </button>
+
+            <ul id="mainMenu">
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#projects">Projects</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <section id="home" class="hero">
+
+            <p>Hello, I'm</p>
+
+            <h1>Nguyễn Phan Đăng Huy</h1>
+
+            <p>
+                An Information Systems student
+                interested in web development.
+            </p>
+
+            <a
+                href="#projects"
+                class="button"
+            >
+                View My Projects
+            </a>
+
+        </section>
+
+
+        <section id="about">
+
+            <h2>About Me</h2>
+
+            <p>
+  I am an Information Systems student who leverages modern web development to build impactful business solutions.
+            </p>
+
+        </section>
+
+
+        <section id="projects">
+
+            <h2>My Projects</h2>
+
+            <article>
+
+                <h3>Laptop Shop</h3>
+
+                <p>
+                    A laptop shopping website built
+                    with modern web technologies.
+                </p>
+
+                <a href="#">
+                    View Project
+                </a>
+
+            </article>
+
+        </section>
+
+
+        <section id="contact">
+
+            <h2>Contact</h2>
+
+            <form>
+
+                <label for="name">
+                    Name
+                </label>
+
+                <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    required
+                >
+
+
+                <label for="email">
+                    Email
+                </label>
+
+                <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                >
+
+
+                <label for="message">
+                    Message
+                </label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    required
+                ></textarea>
+
+
+                <button type="submit">
+                    Send
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            © 2026 My Portfolio
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
