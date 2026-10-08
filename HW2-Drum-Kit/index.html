@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Drum Kit Engine with keyboard controls and beat recorder"
+    >
+
+    <title>Drum Kit Engine</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main>
+
+        <h1>Drum Kit Engine</h1>
+
+        <p>
+            Click a drum or press the corresponding keyboard key.
+        </p>
+
+        <section
+            class="drum-kit"
+            aria-label="Drum kit"
+        >
+
+            <button
+                class="drum"
+                type="button"
+                data-key="a"
+                data-sound="kick"
+            >
+                <span>Kick</span>
+                <kbd>A</kbd>
+            </button>
+
+            <button
+                class="drum"
+                type="button"
+                data-key="s"
+                data-sound="snare"
+            >
+                <span>Snare</span>
+                <kbd>S</kbd>
+            </button>
+
+            <button
+                class="drum"
+                type="button"
+                data-key="d"
+                data-sound="hihat"
+            >
+                <span>Hi-Hat</span>
+                <kbd>D</kbd>
+            </button>
+
+            <button
+                class="drum"
+                type="button"
+                data-key="f"
+                data-sound="clap"
+            >
+                <span>Clap</span>
+                <kbd>F</kbd>
+            </button>
+
+        </section>
+
+
+        <section
+            class="recorder"
+            aria-labelledby="recorder-title"
+        >
+
+            <h2 id="recorder-title">Beat Recorder</h2>
+
+            <div class="recorder-controls">
+
+                <button
+                    id="startRecording"
+                    type="button"
+                >
+                    Start
+                </button>
+
+                <button
+                    id="stopRecording"
+                    type="button"
+                >
+                    Stop
+                </button>
+
+                <button
+                    id="playRecording"
+                    type="button"
+                >
+                    Play
+                </button>
+
+                <button
+                    id="clearRecording"
+                    type="button"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+            <p id="recordingStatus">
+                Ready
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>

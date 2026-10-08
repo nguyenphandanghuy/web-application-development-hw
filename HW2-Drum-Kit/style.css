@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #111827;
+    color: #f9fafb;
+}
+
+main {
+    width: min(900px, 92%);
+    margin: 0 auto;
+    padding: 60px 0;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+.drum-kit {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin: 40px 0;
+}
+
+.drum {
+    min-height: 160px;
+    border: 2px solid #374151;
+    border-radius: 12px;
+    background: #1f2937;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    transition: transform 0.1s, background 0.1s;
+}
+
+.drum:hover {
+    background: #374151;
+}
+
+.drum:active,
+.drum.active {
+    transform: scale(0.95);
+    background: #4b5563;
+}
+
+.drum span {
+    display: block;
+    margin-bottom: 15px;
+}
+
+kbd {
+    display: inline-block;
+    padding: 6px 12px;
+    border: 1px solid #6b7280;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.recorder {
+    margin-top: 40px;
+    padding: 25px;
+    border: 1px solid #374151;
+    border-radius: 12px;
+}
+
+.recorder-controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.recorder button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#recordingStatus {
+    margin-top: 20px;
+}
+
+@media (max-width: 650px) {
+    .drum-kit {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
