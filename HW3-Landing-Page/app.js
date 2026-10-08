@@ -74,3 +74,112 @@ setInterval(
     updateCountdown,
     1000
 );
+// ========================================
+// SLICE 2: FORM STATE MACHINE
+// ========================================
+
+const eventForm =
+    document.querySelector("#event-form");
+
+const formStatus =
+    document.querySelector("#form-status");
+
+const submitButton =
+    document.querySelector("#submit-button");
+
+
+// Possible states:
+// idle -> submitting -> success
+//                  -> error
+let formState = "idle";
+
+
+function setFormState(newState) {
+
+    formState = newState;
+
+
+    switch (formState) {
+
+        case "idle":
+
+            formStatus.textContent =
+                "Ready to submit.";
+
+            submitButton.textContent =
+                "Register";
+
+            break;
+
+
+        case "submitting":
+
+            formStatus.textContent =
+                "Submitting...";
+
+            submitButton.textContent =
+                "Submitting...";
+
+            break;
+
+
+        case "success":
+
+            formStatus.textContent =
+                "Registration successful.";
+
+            submitButton.textContent =
+                "Registered";
+
+            break;
+
+
+        case "error":
+
+            formStatus.textContent =
+                "Registration failed. Please try again.";
+
+            submitButton.textContent =
+                "Register";
+
+            break;
+    }
+}
+
+
+// Initial state
+setFormState("idle");
+
+
+eventForm.addEventListener(
+    "submit",
+    (event) => {
+
+        event.preventDefault();
+
+
+        setFormState("submitting");
+
+
+        // Simulated server request
+        setTimeout(() => {
+
+            const email =
+                document.querySelector("#email").value;
+
+
+            // Test error state with:
+            // test@error.test
+            if (email.endsWith("@error.test")) {
+
+                setFormState("error");
+
+                return;
+            }
+
+
+            setFormState("success");
+
+        }, 1000);
+    }
+);
