@@ -103,46 +103,54 @@ function setFormState(newState) {
 
         case "idle":
 
-            formStatus.textContent =
-                "Ready to submit.";
+    formStatus.textContent =
+        "Ready to submit.";
 
-            submitButton.textContent =
-                "Register";
+    submitButton.textContent =
+        "Register";
 
-            break;
+    submitButton.disabled = false;
+
+    break;
 
 
         case "submitting":
 
-            formStatus.textContent =
-                "Submitting...";
+    formStatus.textContent =
+        "Submitting...";
 
-            submitButton.textContent =
-                "Submitting...";
+    submitButton.textContent =
+        "Submitting...";
 
-            break;
+    submitButton.disabled = true;
+
+    break;
 
 
         case "success":
 
-            formStatus.textContent =
-                "Registration successful.";
+    formStatus.textContent =
+        "Registration successful.";
 
-            submitButton.textContent =
-                "Registered";
+    submitButton.textContent =
+        "Registered";
 
-            break;
+    submitButton.disabled = true;
+
+    break;
 
 
         case "error":
 
-            formStatus.textContent =
-                "Registration failed. Please try again.";
+    formStatus.textContent =
+        "Registration failed. Please try again.";
 
-            submitButton.textContent =
-                "Register";
+    submitButton.textContent =
+        "Register";
 
-            break;
+    submitButton.disabled = false;
+
+    break;
     }
 }
 
@@ -156,6 +164,13 @@ eventForm.addEventListener(
     (event) => {
 
         event.preventDefault();
+
+
+        // Prevent double-submit while
+        // the form is being submitted.
+        if (formState === "submitting") {
+            return;
+        }
 
 
         setFormState("submitting");
