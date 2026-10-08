@@ -166,9 +166,72 @@ eventForm.addEventListener(
         event.preventDefault();
 
 
-        // Prevent double-submit while
-        // the form is being submitted.
+        // Prevent double-submit while submitting.
         if (formState === "submitting") {
+            return;
+        }
+
+
+        const nameInput =
+            document.querySelector("#name");
+
+        const emailInput =
+            document.querySelector("#email");
+
+
+        const name =
+            nameInput.value.trim();
+
+        const email =
+            emailInput.value.trim();
+
+
+        // Basic input validation.
+        if (
+            name.length < 2 ||
+            name.length > 50
+        ) {
+
+            setFormState("error");
+
+            formStatus.textContent =
+                "Please enter a valid name.";
+
+            nameInput.focus();
+
+            return;
+        }
+
+
+        // Basic email validation.
+        const emailPattern =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+        if (!emailPattern.test(email)) {
+
+            setFormState("error");
+
+            formStatus.textContent =
+                "Please enter a valid email.";
+
+            emailInput.focus();
+
+            return;
+        }
+
+
+        // Reject HTML-like input.
+        if (
+            /<|>/.test(name) ||
+            /<|>/.test(email)
+        ) {
+
+            setFormState("error");
+
+            formStatus.textContent =
+                "HTML characters are not allowed.";
+
             return;
         }
 
@@ -176,15 +239,10 @@ eventForm.addEventListener(
         setFormState("submitting");
 
 
-        // Simulated server request
+        // Simulated server request.
         setTimeout(() => {
 
-            const email =
-                document.querySelector("#email").value;
-
-
-            // Test error state with:
-            // test@error.test
+            // Test error state.
             if (email.endsWith("@error.test")) {
 
                 setFormState("error");
